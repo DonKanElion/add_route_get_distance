@@ -10,17 +10,6 @@ export const App = () => {
   const [distance, setDistance] = useState(null);
   const [onOpenMap, setOnOpenMap] = useState(false);
 
-  const [address, setAddress] = useState({
-    streetAndNumber: '',
-    place: '',
-    subregion: '',
-    region: '',
-    postcode: '',
-    country: '',
-    latitude: '',
-    longitude: '',
-  });
-
   const changeDistance = data => {
     const metersToKilometersConversion = data / 1000;
     setDistance(metersToKilometersConversion);
@@ -48,9 +37,7 @@ export const App = () => {
         distance={distance}
         addCoordinates={addCoordinates}
         changeDistance={changeDistance}
-        address={address}
-        setAddress={setAddress}
-      ></ContainerLeaflet>
+      />
 
       <button type="button" onClick={() => setOnOpenMap(!onOpenMap)}>
         Open map

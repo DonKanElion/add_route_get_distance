@@ -7,11 +7,11 @@ export const ContainerLeaflet = ({
   distance,
   changeDistance,
   addCoordinates,
-  children,
+  // children,
 }) => {
   const [route, setRoute] = useState([]);
-  const [origin, setOrigin] = useState([]);
-  const [destination, setDestination] = useState([]);
+  const [origin, setOrigin] = useState({});
+  const [destination, setDestination] = useState({});
 
   const setDistanceInLocalStorage = data => {
     localStorage.setItem('route', data);
@@ -32,7 +32,7 @@ export const ContainerLeaflet = ({
     }
   };
 
-  const handleClick = () => {
+  const handleSaveDistance = () => {
     if (!distance) return alert('Enter endpoints');
 
     console.log('Distance: ', distance?.toFixed(5));
@@ -52,8 +52,9 @@ export const ContainerLeaflet = ({
 
   const handleSubmit = e => {
     e.preventDefault();
-
-    if (!origin && !destination) return alert('Enter the address');
+    
+    if (!origin.longitude && !destination.longitude)
+      return alert('Enter the address');
 
     const coordinates = {
       origin: [origin.longitude, origin.latitude],
@@ -108,13 +109,13 @@ export const ContainerLeaflet = ({
         </p>
         <button
           type="button"
-          onClick={handleClick}
+          onClick={handleSaveDistance}
           style={{ marginLeft: '20px', height: '30px' }}
         >
           Save distance
         </button>
       </div>
-      {children}
+      {/* {children} */}
     </>
   );
 };
