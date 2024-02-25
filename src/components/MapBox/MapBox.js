@@ -9,6 +9,8 @@ import '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css';
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoiZXhhbXBsZXMiLCJhIjoiY2p0MG01MXRqMW45cjQzb2R6b2ptc3J4MSJ9.zA2W0IkI0c6KaAhJfk9bWg';
+// 'pk.eyJ1IjoiZG9ua2FuZWxpb24iLCJhIjoiY2xyemI3NG9vMXVleTJrbXh4ZTJ2dTU1OSJ9.GhotX4S_qU8d3_5kwAs9gg'; // Palienko token
+
 // pk.eyJ1Ijoic2tvcmFzYXVydXMiLCJhIjoiY2s5dmRjbnZpMDVlZzNlcjN3MHowYzVrbSJ9.AcSdcVS034Hhl0RhBHoC2A
 
 const MapBox = ({ coordinates, changeDistance }) => {
@@ -17,8 +19,10 @@ const MapBox = ({ coordinates, changeDistance }) => {
   const [lng, setLng] = useState(30.5241);
   const [lat, setLat] = useState(50.45);
   const [zoom, setZoom] = useState(9);
+
   const [distance, setDistance] = useState(null);
 
+  // Initialize map when component mounts
   useEffect(() => {
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
@@ -50,6 +54,7 @@ const MapBox = ({ coordinates, changeDistance }) => {
       interactive: false,
       flyTo: false,
       // autocomplete: true,
+
       //   geometries: false,
       //   controls: { instructions: true },
     });
@@ -63,14 +68,12 @@ const MapBox = ({ coordinates, changeDistance }) => {
       if (origin && destination) {
         directions.setOrigin(origin);
         directions.setDestination(destination);
-
         return;
       }
     });
 
     // ✅ Distance
     directions.on('route', e => {
-      
       if (e.route && e.route[0] && e.route[0].distance) {
         const routeDistance = e.route[0].distance;
         setDistance(routeDistance);

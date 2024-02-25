@@ -13,7 +13,7 @@ export const getAddress = debounce(async query => {
         countryCode: 'ua',
         sourceCountry: 'ua',
         category: 'Address',
-        maxLocations: 5,
+        maxLocations: 10,
         angCode: 'uk',
         outFields: '*',
         forStorage: false,

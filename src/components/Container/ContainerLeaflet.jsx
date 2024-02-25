@@ -7,7 +7,6 @@ export const ContainerLeaflet = ({
   distance,
   changeDistance,
   addCoordinates,
-  // children,
 }) => {
   const [route, setRoute] = useState([]);
   const [origin, setOrigin] = useState({});
@@ -52,7 +51,7 @@ export const ContainerLeaflet = ({
 
   const handleSubmit = e => {
     e.preventDefault();
-    
+
     if (!origin.longitude && !destination.longitude)
       return alert('Enter the address');
 
@@ -115,7 +114,6 @@ export const ContainerLeaflet = ({
           Save distance
         </button>
       </div>
-      {/* {children} */}
     </>
   );
 };
