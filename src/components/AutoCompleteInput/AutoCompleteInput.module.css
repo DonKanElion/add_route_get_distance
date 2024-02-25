@@ -1,0 +1,35 @@
+.autoCompleteInputContainer {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.addressSuggestions {
+  position: absolute;
+  background-color: white;
+  border: 1px solid black;
+  overflow: hidden;
+  border-radius: 4px;
+  color: black;
+  z-index: 999;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.addressSuggestions_item {
+  list-style: none;
+  border-bottom: 1px solid black;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.addressSuggestions_item:hover {
+  background-color: rgb(165, 173, 184);
+  color: white;
+  cursor: pointer;
+}
+
+.input {
+  min-width: 360px;
+  height: 26px;
+}
