@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/add_route_get_distance/static/css/main.7acaea2f.css",
+    "main.js": "/add_route_get_distance/static/js/main.07d3183d.js",
+    "index.html": "/add_route_get_distance/index.html",
+    "main.7acaea2f.css.map": "/add_route_get_distance/static/css/main.7acaea2f.css.map",
+    "main.07d3183d.js.map": "/add_route_get_distance/static/js/main.07d3183d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.07d3183d.js"
+  ]
+}
