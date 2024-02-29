@@ -9,8 +9,6 @@ import '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css';
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoiZXhhbXBsZXMiLCJhIjoiY2p0MG01MXRqMW45cjQzb2R6b2ptc3J4MSJ9.zA2W0IkI0c6KaAhJfk9bWg';
-// 'pk.eyJ1IjoiZG9ua2FuZWxpb24iLCJhIjoiY2xyemI3NG9vMXVleTJrbXh4ZTJ2dTU1OSJ9.GhotX4S_qU8d3_5kwAs9gg'; // Palienko token
-
 // pk.eyJ1Ijoic2tvcmFzYXVydXMiLCJhIjoiY2s5dmRjbnZpMDVlZzNlcjN3MHowYzVrbSJ9.AcSdcVS034Hhl0RhBHoC2A
 
 const MapBox = ({ coordinates, changeDistance }) => {
@@ -28,6 +26,7 @@ const MapBox = ({ coordinates, changeDistance }) => {
       container: mapContainerRef.current,
       style: 'mapbox://styles/mapbox/streets-v12',
       center: [lng, lat],
+      coordinatesList: [coordinates.origin, coordinates.destination],
       zoom: zoom,
       //   attributionControl: true,
       language: 'uk-UA',

@@ -1,23 +1,24 @@
 import axios from 'axios';
-import debounce from 'lodash.debounce';
+// import debounce from 'lodash.debounce';
 
-const DEBOUNCE_DELAY = 300;
+// const DEBOUNCE_DELAY = 300;
 
 const BASE_URL =
   'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates';
 
-export const getAddress = debounce(async query => {
+export const getAddress = async query => {
   try {
     const response = await axios.get(`${BASE_URL}?SingleLine=${query}`, {
       params: {
         countryCode: 'ua',
         sourceCountry: 'ua',
-        category: 'Address',
-        maxLocations: 10,
+        category: 'address',
+        maxLocations: 40,
         angCode: 'uk',
         outFields: '*',
         forStorage: false,
         f: 'pjson',
+        autocomplete: 'true',
         //   outFields: 'PlaceName,Type,City,Country',
       },
     });
@@ -25,4 +26,4 @@ export const getAddress = debounce(async query => {
   } catch (error) {
     console.error('There was an error while fetching places:', error);
   }
-}, DEBOUNCE_DELAY);
+};

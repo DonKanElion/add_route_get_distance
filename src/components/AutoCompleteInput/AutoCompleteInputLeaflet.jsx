@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { getAddress } from 'api/fetchAddress';
 
+import debounce from 'lodash.debounce';
 import css from './AutoCompleteInput.module.css';
+
+const DEBOUNCE_DELAY = 300;
 
 export default function AutoCompleteInputLeaflet({
   name,
@@ -10,17 +13,11 @@ export default function AutoCompleteInputLeaflet({
   addEndpoint,
 }) {
   const [suggestions, setSuggestions] = useState([]);
-  const [value, setValue] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const handleChange = event => {
-    setValue(event.target.value);
-    handleInputChange(event.target.value);
-  };
-
-  const handleInputChange = async query => {
-    const data = await getAddress(query);
-    setSuggestions(data);
-  };
+  const handleInputChange = debounce(query => {
+    getAddress(query).then(data => setSuggestions(data));
+  }, DEBOUNCE_DELAY);
 
   const handleSuggestionClick = suggestion => {
     const streetAndNumber = suggestion.address;
@@ -44,7 +41,7 @@ export default function AutoCompleteInputLeaflet({
       longitude,
     };
 
-    setValue(suggestion.address);
+    setSearchQuery(suggestion.address);
     addEndpoint({ address: address, name: name });
     setSuggestions([]);
   };
@@ -59,8 +56,11 @@ export default function AutoCompleteInputLeaflet({
           autoComplete="off"
           name={name}
           placeholder={placeholder}
-          value={value}
-          onChange={handleChange}
+          value={searchQuery}
+          onChange={event => {
+            setSearchQuery(event.target.value);
+            handleInputChange(event.target.value);
+          }}
         />
         <ul className={css.addressSuggestions}>
           {suggestions?.map((suggestion, index) => (
