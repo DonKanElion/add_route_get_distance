@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/add_route_get_distance/static/css/main.3055b6d6.css",
-    "main.js": "/add_route_get_distance/static/js/main.e9355f2f.js",
+    "main.js": "/add_route_get_distance/static/js/main.2c96a0e8.js",
     "index.html": "/add_route_get_distance/index.html",
     "main.3055b6d6.css.map": "/add_route_get_distance/static/css/main.3055b6d6.css.map",
-    "main.e9355f2f.js.map": "/add_route_get_distance/static/js/main.e9355f2f.js.map"
+    "main.2c96a0e8.js.map": "/add_route_get_distance/static/js/main.2c96a0e8.js.map"
   },
   "entrypoints": [
     "static/css/main.3055b6d6.css",
-    "static/js/main.e9355f2f.js"
+    "static/js/main.2c96a0e8.js"
   ]
 }
