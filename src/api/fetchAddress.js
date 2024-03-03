@@ -1,7 +1,4 @@
 import axios from 'axios';
-// import debounce from 'lodash.debounce';
-
-// const DEBOUNCE_DELAY = 300;
 
 const BASE_URL =
   'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates';
