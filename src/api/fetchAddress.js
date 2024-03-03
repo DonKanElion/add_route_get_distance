@@ -10,11 +10,13 @@ export const getAddress = async query => {
   try {
     const response = await axios.get(`${BASE_URL}?SingleLine=${query}`, {
       params: {
-        countryCode: 'ua',
-        sourceCountry: 'ua',
-        category: 'address',
-        maxLocations: 40,
-        angCode: 'uk',
+        countryCode: 'UKR',
+        sourceCountry: 'UKR',
+        category: 'Address',
+        maxLocations: 30,
+        maxSuggestions: 30,
+        locationType: 'street',
+        langCode: 'UKR',
         outFields: '*',
         forStorage: false,
         f: 'pjson',
